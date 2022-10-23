@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Surname</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr>
+    {% for student in students %}
+    <td>
+      <a href="{{ url_for('student', id=student.id)}}">{{ student['id'] }}</a>
+    </td>
+    <td>
+      <p>{{student['name']}}</p>
+    </td>
+    <td>
+      <p>{{student['surname']}}</p>
+    </td>
+    <td>
+      <a href="{{ url_for('student_edit', id=student.id)}}"><img src="../static/edit.svg" alt=""></a>
+    </td>
+    <td>
+      <a href="{{ url_for('student_delete', id=student.id)}}"/><img src="../static/delete.svg" alt=""></a>
+    </td>
+    
+
+    {% endfor %}
+  </tr>
+</table>
+
+{% endblock %}

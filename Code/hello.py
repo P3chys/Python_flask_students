@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for
 import requests
 import sqlite3
+import pandas as pd
 app = Flask(__name__)
 
 
